@@ -7,11 +7,14 @@ export function toTitleCase(s) {
 }
 
 export function isPalindrome(s) {
-  // Return true if s reads the same ignoring case and spaces.
-  // "Race car" -> true
+  const cleaned = s.replace(/\s+/g, '').toLowerCase();
+  const reversed = cleaned.split('').reverse().join('');
+  return cleaned === reversed;
 }
 
+
 export function sumEven(nums) {
-  // Sum even integers in the array.
-  // [1,2,3,4,6] -> 12
+  return nums
+    .filter((n) => Number.isInteger(n) && n % 2 === 0)
+    .reduce((sum, n) => sum + n, 0);
 }
